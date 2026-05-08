@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: minimax-m25-vllm-nd
+build:
+  path: .
+  dockerfile_path: Dockerfile
+inference_config:
+  liveness_route:
+    port: 8000
+    path: /ping
+  readiness_route:
+    port: 8000
+    path: /health
+  scoring_route:
+    port: 8000
+    path: /
